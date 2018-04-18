@@ -69,8 +69,8 @@ $config = [
 
 两个方法的作用如下：
 
-`driver()` ： 确定支付平台，如 `alipay`,`wechat`;  
-`gateway()`： 确定支付网关，如 `app`,`pos`,`scan`,`transfer`,`wap`,`...`
+`driver()` ： 确定支付平台，如 `alipay`,`wechat`,`qpay`;  
+`gateway()`： 确定支付网关，如 `app`,`pos`,`scan`,`transfer`,`wap`,`web`,`...`
 
 具体实现可以查看源代码。
 
@@ -149,7 +149,7 @@ SDK 中对应的 driver 和 gateway 如下表所示：
 $pay = new \Sheep\payment\Pay($config);
 
 try {
-    $options = $pay->driver('alipay')->gateway('app')->apply($payOrder);
+    $options = $pay->driver('alipay')->gateway('wap')->apply($payOrder);
     var_dump($options);
 } catch (Exception $e) {
     echo "创建订单失败，" . $e->getMessage();
