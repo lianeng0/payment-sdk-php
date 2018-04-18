@@ -86,7 +86,7 @@ SDK 中对应的 driver 和 gateway 如下表所示：
 | alipay | pos     | 刷卡支付  |
 | alipay | scan    | 扫码支付  |
 | alipay | bill    | 电子账单  |
-| alipay | transfer    | 帐户转账（可用于平台用户提现）  |
+| alipay | transfer | 帐户转账  |
 
 ### 2、微信
 
@@ -102,6 +102,17 @@ SDK 中对应的 driver 和 gateway 如下表所示：
 | wechat | app     | APP 支付   |
 | wechat | bill    | 电子账单   |
 | wechat | transfer  | 企业付款到零钱  |
+
+### 3、QQ
+
+SDK 中对应的 driver 和 gateway 如下表所示：
+
+| driver | gateway |   描述     |
+| :----: | :-----: | :-------: |
+| qpay | wap     | H5 支付  |
+| qpay | scan    | 扫码支付   |
+
+更多方式正在赶来...
 
 ## 操作
 
