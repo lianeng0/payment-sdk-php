@@ -20,7 +20,7 @@ PHP支付SDK（QQ钱包支付 + 微信支付 + 支付宝支付）
 
 若对您有帮助，可以**赞助**支持下作者哦！
 ----
-![](https://www.wodetu.cn/images/reward.jpg)
+![singlesheep](https://github.com/SingleSheep/payment-sdk-php/blob/master/20180418213222.png?raw=true)
 
 ## 环境
 - PHP 5.6+
