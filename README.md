@@ -96,19 +96,18 @@ SDK 中对应的 driver 和 gateway 如下表所示：
 | :----: | :-----: | :-------: |
 | wechat | mp      | 公众号支付  |
 | wechat | miniapp | 小程序支付  |
-| wechat | wap     | H5 支付（不支持沙箱模式） |
-| wechat | scan    | 扫码支付    |
+| wechat | wap     | H5 支付  |
+| wechat | scan    | 扫码支付   |
 | wechat | pos     | 刷卡支付    |
 | wechat | app     | APP 支付   |
 | wechat | bill    | 电子账单   |
-| wechat | transfer  | 企业付款到零钱（可用于平台用户提现）  |
-| wechat | bank  | 企业付款到银行卡（可用于平台用户提现）  |
+| wechat | transfer  | 企业付款到零钱  |
 
 ## 操作
 
 所有网关均支持以下方法
 
-- apply(array $options)  
+- pay(array $options)  
 说明：支付发起接口  
 参数：数组类型，订单业务配置项，包含 订单号，订单金额等  
 返回：mixed
@@ -136,7 +135,7 @@ SDK 中对应的 driver 和 gateway 如下表所示：
 ## 实例
 ```php
 // 实例支付对象
-$pay = new \Pay\Pay($config);
+$pay = new \Sheep\payment\Pay($config);
 
 try {
     $options = $pay->driver('alipay')->gateway('app')->apply($payOrder);
@@ -151,7 +150,7 @@ try {
 #### 支付宝
 ```php
 // 实例支付对象
-$pay = new \Pay\Pay($config);
+$pay = new \Sheep\payment\Pay($config);
 
 $verify = $pay->driver('alipay')->gateway()->verify($_POST);
 if ($verify) {
