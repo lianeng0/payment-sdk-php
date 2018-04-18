@@ -155,7 +155,33 @@ try {
     echo "创建订单失败，" . $e->getMessage();
 }
 ```
-
+## 聚合使用示例
+```php
+ if ($this->request->isPost()){
+            $driver = $this->request->post('driver');
+            $gateway = $this->request->post('gateway');
+            switch ($driver){
+                case 'alipay':
+                    $order = [
+                        'out_trade_no' => time(),
+                        'total_amount' => '0.01', //微信 total_fee
+                        'subject'      => 'test subject-测试订单',//微信 body
+                    ];
+                    break;
+                default:
+                    $order = [
+                        'out_trade_no' => time(),
+                        'total_fee' => '1', //微信 total_fee  //单位：分
+                        'body'      => 'test subject-测试订单',//微信 body
+                    ];
+                    break;
+            }
+            $pay = new Pay($config);
+            $result = $pay->driver($driver)->gateway($gateway)->pay($order);
+            halt($result);
+        }
+    }
+```
 ## 通知
 
 #### 支付宝
