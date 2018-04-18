@@ -1,9 +1,9 @@
 # payment-sdk-php
 PHP支付SDK（QQ钱包支付 + 微信支付 + 支付宝支付）
 
-欢迎`Star`，欢迎`Fork`！
-项目以用于实践  案例  [Mofee聚合支付](https://www.98imo.com/)
-项目设计及部分源码参考于 [yansongda/pay](https://github.com/yansongda/pay)，在此特别感谢！
+- 欢迎`Star`，欢迎`Fork`！
+- 项目以用于实践  案例  [Mofee聚合支付](https://www.98imo.com/)
+- 项目设计及部分源码参考于 [yansongda/pay](https://github.com/yansongda/pay)，在此特别感谢！
 
 ## 特点
 - 代码简洁，无需加载多余组件，可应用于任何平台或框架
