@@ -1,19 +1,14 @@
-# pay-php-sdk
-PHP支付SDK（微信支付 + 支付宝支付）
-
-[![Latest Stable Version](https://poser.pugx.org/zoujingli/pay-php-sdk/v/stable)](https://packagist.org/packages/zoujingli/pay-php-sdk)
-[![Total Downloads](https://poser.pugx.org/zoujingli/pay-php-sdk/downloads)](https://packagist.org/packages/zoujingli/pay-php-sdk)
-[![Latest Unstable Version](https://poser.pugx.org/zoujingli/pay-php-sdk/v/unstable)](https://packagist.org/packages/zoujingli/pay-php-sdk)
-[![License](https://poser.pugx.org/zoujingli/pay-php-sdk/license)](https://packagist.org/packages/zoujingli/pay-php-sdk)
+# payment-sdk-php
+PHP支付SDK（QQ钱包支付 + 微信支付 + 支付宝支付）
 
 欢迎`Star`，欢迎`Fork`！
-
+项目以用于实践  案例  [Mofee聚合支付](https://www.98imo.com/)
 项目设计及部分源码参考于 [yansongda/pay](https://github.com/yansongda/pay)，在此特别感谢！
 
 ## 特点
 - 代码简洁，无需加载多余组件，可应用于任何平台或框架
 - 隐藏开发者不需要关注的细节，完全内部实现
-- 根据支付宝、微信最新`API`开发集成
+- 根据支付宝、微信和QQ支付最新`API`开发集成
 - 高度抽象的类，免去各种拼`json`与`xml`的痛苦
 - 符合`PSR`标准，你可以各种方便的与你的框架集成
 - 文件结构清晰易理解，可以随心所欲添加本项目中没有的支付网关
@@ -21,7 +16,7 @@ PHP支付SDK（微信支付 + 支付宝支付）
 
 ## 声明
 - 代码与框架部分参考于互联网开源项目
-- `SDK`全部源码基于`MIT`协议开源，完全免费
+- 此`SDK`全部源码基于`MIT`协议开源，完全免费
 
 ## 环境
 - PHP 5.6+
@@ -29,26 +24,43 @@ PHP支付SDK（微信支付 + 支付宝支付）
 ## 配置
 ```php
 $config = [
-    // 微信支付参数
-    'wechat' => [
-        'debug'      => false, // 沙箱模式
-        'app_id'     => '', // 应用ID
-        'mch_id'     => '', // 微信支付商户号
-        'mch_key'    => '', // 微信支付密钥
-        'ssl_cer'    => '', // 微信证书 cert 文件
-        'ssl_key'    => '', // 微信证书 key 文件
-        'notify_url' => '', // 支付通知URL
-        'cache_path' => '',// 缓存目录配置（沙箱模式需要用到）
-    ],
-    // 支付宝支付参数
-    'alipay' => [
-        'debug'       => false, // 沙箱模式
-        'app_id'      => '', // 应用ID
-        'public_key'  => '', // 支付宝公钥(1行填写)
-        'private_key' => '', // 支付宝私钥(1行填写)
-        'notify_url'  => '', // 支付通知URL
-    ]
-];
+            'wechat' => [
+                'app_id'    =>'',
+                'mch_id'    =>'',
+                'mch_key'   =>'',
+                'ssl_cer'   =>'',
+                'ssl_key'   =>'',
+                'notify_url'=>''
+            ],
+            'alipay' => [
+                //应用ID,您的APPID。
+                'app_id' => "",
+                //商户私钥, 请把生成的私钥文件中字符串拷贝在此
+                'private_key'    =>'',
+                //支付宝公钥,查看地址：https://openhome.alipay.com/platform/keyManage.htm 对应APPID下的支付宝公钥。
+                'public_key' => '',
+                //异步通知地址
+                'notify_url' => "",
+                //同步跳转
+                'return_url' => "",
+                //沙箱
+                'debug'           => false,
+            ],
+            'qpay' => [
+                // QQ钱包分配的商户号
+                'mch_id'          => '',
+                // Qpay商户号
+                'sub_mch_id'      => '',
+                // Qpay支付签名秘钥
+                'mch_key'         => '',
+                //异步通知地址
+                'notify_url'      => '',
+                'ssl_cer'         => '',
+                'ssl_key'         => '',
+                //沙箱
+                'debug'           => false,
+            ],
+        ];
 ```
 
 ## 架构
