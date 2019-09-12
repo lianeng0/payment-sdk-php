@@ -115,6 +115,7 @@ SDK 中对应的 driver 和 gateway 如下表所示：
 | :----: | :-----: | :-------: |
 | qpay | wap     | H5 支付  |
 | qpay | scan    | 扫码支付   |
+| qpay | transfer| 转账到余额 |
 
 更多方式正在赶来...
 
