@@ -129,6 +129,7 @@ abstract class Qpay extends GatewayInterface
     }
 
     /**
+     * 充值，转账都可以走这里
      * @param array $options
      * @return array
      * @throws GatewayException
