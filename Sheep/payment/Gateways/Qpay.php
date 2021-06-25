@@ -129,6 +129,7 @@ abstract class Qpay extends GatewayInterface
     }
 
     /**
+     * 充值，转账都可以走这里
      * @param array $options
      * @return array
      * @throws GatewayException
@@ -153,7 +154,7 @@ abstract class Qpay extends GatewayInterface
     {
         $result = $this->fromXml(
             $this->post($this->baseUrl . $url, $this->toXml($this->payload),
-                $cert ? ['ssl_cer' => $this->config->get('ssl_cer', ''), 'ssl_key' => $this->config->get('ssl_key', '')]: '')
+                $cert ? ['ssl_cer' => $this->config->get('ssl_cer', ''), 'ssl_key' => $this->config->get('ssl_key', '')]: null)
         );
         halt($result);
         if (!isset($result['return_code']) || $result['return_code'] !== 'SUCCESS' || $result['result_code'] !== 'SUCCESS') {
